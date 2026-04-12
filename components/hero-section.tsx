@@ -95,7 +95,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-background pt-6 md:pt-8 lg:pt-10"
+      className="relative bg-gradient-to-b from-blue-50/50 to-background pt-4 md:pt-6 lg:pt-8"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="absolute inset-0 opacity-30">
@@ -103,7 +103,7 @@ export function HeroSection() {
         <div className="absolute bottom-20 left-10 h-96 w-96 rounded-full bg-blue-300/20 blur-3xl" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 md:px-6 pt-2 md:pt-4 lg:pt-6 pb-12 md:pb-16 lg:pb-20">
+      <div className="container relative z-10 mx-auto px-4 md:px-6 pt-1 md:pt-3 lg:pt-4 pb-12 md:pb-16 lg:pb-20">
         <div className="grid grid-cols-1 items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           <div
             className={`space-y-6 transition-all duration-700 ${
@@ -116,15 +116,20 @@ export function HeroSection() {
             </div>
 
             {isArabic ? (
-              <div className="mx-auto w-full max-w-xl space-y-4 lg:mx-0 lg:max-w-2xl">
-                <h1 className="text-center font-extrabold leading-[1.1] tracking-tight text-slate-950 text-[2.5rem] sm:text-[3rem] md:text-[3.6rem] lg:text-[3.9rem] xl:text-[4.2rem] lg:text-right">
-                  <span className="block max-w-full text-balance break-words">
-                    {heroHeadline?.lineOne}
-                  </span>
-                  <span className="mt-2 block text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text text-center lg:text-center">
-                    {heroHeadline?.lineTwo}
-                  </span>
-                </h1>
+              <div className="mx-auto w-full max-w-xl space-y-5 lg:mx-0 lg:max-w-2xl">
+                <div className="w-full max-w-2xl text-center lg:text-right">
+                  <h1
+                    className="mx-auto flex max-w-full flex-col items-center gap-2 overflow-visible pb-2 font-extrabold tracking-[-0.02em] text-slate-950 text-[2.2rem] leading-[1.32] sm:text-[2.7rem] sm:leading-[1.3] md:text-[3.2rem] md:leading-[1.28] lg:mx-0 lg:items-start lg:text-[3.65rem] lg:leading-[1.22] xl:text-[4rem] xl:leading-[1.2]"
+                    style={{ fontFamily: 'var(--font-cairo), Cairo, system-ui, sans-serif' }}
+                  >
+                    <span className="block w-full overflow-visible pb-[0.14em] [text-wrap:balance]">
+                      {heroHeadline?.lineOne}
+                    </span>
+                    <span className="block w-full overflow-visible pb-[0.16em] text-center text-transparent [text-wrap:balance] bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text lg:text-right">
+                      {heroHeadline?.lineTwo}
+                    </span>
+                  </h1>
+                </div>
 
                 <div className="mx-auto max-w-xl rounded-2xl border border-blue-100/80 bg-white/85 px-5 py-4 shadow-lg shadow-blue-100/40 backdrop-blur-sm md:px-6 lg:mx-0">
                   <p className="text-center text-base font-medium leading-8 text-slate-700 md:text-lg lg:text-right">
