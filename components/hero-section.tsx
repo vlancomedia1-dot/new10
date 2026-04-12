@@ -116,12 +116,12 @@ export function HeroSection() {
             </div>
 
             {isArabic ? (
-              <div className="mx-auto w-full max-w-xl space-y-4 lg:mx-0 lg:max-w-2xl">
-                <h1 className="text-center font-extrabold leading-[1.1] tracking-tight text-slate-950 text-[2.5rem] sm:text-[3rem] md:text-[3.6rem] lg:text-[3.9rem] xl:text-[4.2rem] lg:text-right">
-                  <span className="block max-w-full text-balance break-words">
+              <div className="mx-auto flex w-full max-w-xl flex-col items-center space-y-4 lg:max-w-2xl">
+                <h1 className="flex w-full flex-col items-center text-center font-extrabold tracking-tight text-slate-950">
+                  <span className="inline-block whitespace-nowrap pb-2 font-[Tajawal,IBM_Plex_Sans_Arabic,system-ui,sans-serif] text-[2.3rem] leading-[1.22] sm:text-[2.8rem] md:text-[3.2rem] lg:text-[3.6rem] xl:text-[3.9rem]">
                     {heroHeadline?.lineOne}
                   </span>
-                  <span className="mt-2 block text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text text-center lg:text-center">
+                  <span className="inline-block whitespace-nowrap pb-1 text-center font-[Tajawal,IBM_Plex_Sans_Arabic,system-ui,sans-serif] text-[2.05rem] leading-[1.24] text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text sm:text-[2.45rem] md:text-[2.85rem] lg:text-[3.05rem] xl:text-[3.2rem]">
                     {heroHeadline?.lineTwo}
                   </span>
                 </h1>
@@ -129,7 +129,7 @@ export function HeroSection() {
                 <div className="group relative mx-auto max-w-xl overflow-hidden rounded-[28px] border border-blue-200/70 bg-gradient-to-l from-white via-sky-50 to-blue-50 px-5 py-4 shadow-[0_18px_50px_-24px_rgba(37,99,235,0.45)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-24px_rgba(14,165,233,0.5)] md:px-6 lg:mx-0">
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.14),transparent_34%)] opacity-90" />
                   <div className="pointer-events-none absolute -left-16 top-0 h-full w-24 -skew-x-12 bg-white/40 blur-xl transition-transform duration-700 group-hover:translate-x-[220%]" />
-                  <div className="relative flex items-center justify-center gap-3 lg:justify-start">
+                  <div className="relative flex items-center justify-center gap-3">
                     <span className="h-2.5 w-2.5 rounded-full bg-blue-600 shadow-[0_0_0_6px_rgba(37,99,235,0.12)]" />
                     <p className="text-center text-base font-semibold leading-8 text-slate-800 md:text-lg lg:text-right">
                       {heroHeadline?.description}
