@@ -49,7 +49,6 @@ export function HeroSection() {
   }, []);
 
   useEffect(() => {
-    // Play video when it's loaded and mounted
     const video = videoRef.current;
     if (video && mounted && hero) {
       const playVideo = async () => {
@@ -59,8 +58,7 @@ export function HeroSection() {
           console.error("Video autoplay failed:", error);
         }
       };
-      
-      // Try to play after a small delay to ensure video is loaded
+
       const timer = setTimeout(playVideo, 500);
       return () => clearTimeout(timer);
     }
@@ -76,26 +74,16 @@ export function HeroSection() {
 
   if (!hero) return null;
 
-  // Helper function to get localized text with fallback
   const t = (field: LocalizedString) => {
     return field[language] || field.en || field.ar || "";
   };
 
-  // Determine text direction based on language
   const isRTL = language === "ar";
-  const isArabic = language === "ar";
-
-  const heroHeadline = isArabic
-    ? {
-        eyebrow: "شريكك في التحول الرقمي",
-        lineOne: "نطوّر المستقبل الرقمي",
-        lineTwo: "بثقة وابتكار",
-        description: "حيث تتحول الأفكار إلى حلول تقنية رائدة.",
-      }
-    : null;
-
-  // Use video URL from hero data or fallback to default
   const videoUrl = hero.video || "https://admin.zynqor.org/public/vid.mp4";
+
+  const titleText = t(hero.title);
+  const subtitleText = t(hero.subtitle);
+  const descriptionText = t(hero.description);
 
   return (
     <section
@@ -103,81 +91,68 @@ export function HeroSection() {
       className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-background pt-16 lg:pt-20"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Background blobs */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-10 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+        <div className="absolute bottom-20 left-10 h-96 w-96 rounded-full bg-blue-300/20 blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 pt-4 md:pt-8 lg:pt-10 pb-12 md:pb-16 lg:pb-20 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Content */}
+      <div className="container relative z-10 mx-auto px-4 md:px-6 pt-4 md:pt-8 lg:pt-10 pb-12 md:pb-16 lg:pb-20">
+        <div className="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2">
           <div
-            className={`space-y-6 transition-all duration-700 ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            className={`order-2 lg:order-1 transition-all duration-700 ${
+              mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="inline-flex items-center gap-2 bg-blue-100/90 text-blue-800 px-4 py-2 rounded-full text-sm font-medium w-fit shadow-sm">
-              <Sparkles className="w-4 h-4" />
-              {isArabic ? heroHeadline?.eyebrow : t(hero.meta_keywords)}
-            </div>
-
-            {isArabic ? (
-              <div className="space-y-4 max-w-2xl">
-                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight text-balance">
-                  <span className="block text-foreground">{heroHeadline?.lineOne}</span>
-                  <span className="mt-2 block text-transparent bg-clip-text bg-gradient-to-l from-blue-500 via-cyan-500 to-blue-700">
-                    {heroHeadline?.lineTwo}
-                  </span>
-                </h1>
-
-                <div className="max-w-xl rounded-2xl border border-blue-100/80 bg-white/80 backdrop-blur-sm px-5 py-4 shadow-lg shadow-blue-100/40">
-                  <p className="text-lg md:text-xl text-slate-700 leading-8 font-medium">
-                    {heroHeadline?.description}
-                  </p>
-                </div>
+            <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-5 text-center lg:mx-0 lg:items-start lg:text-start">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100/80 px-4 py-2 text-sm font-medium text-blue-800 shadow-sm backdrop-blur w-fit">
+                <Sparkles className="h-4 w-4" />
+                <span className="leading-none">{t(hero.meta_keywords)}</span>
               </div>
-            ) : (
-              <>
-                <h1 className="text-4xl md:text-6xl font-bold">
-                  {t(hero.title)}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-l from-blue-500 to-blue-700">
-                    {" "}
-                    {t(hero.subtitle)}
+
+              <div className="space-y-3 md:space-y-4">
+                <h1 className="max-w-[14ch] text-balance text-4xl font-extrabold leading-[1.2] tracking-tight text-slate-950 sm:text-5xl md:text-6xl lg:max-w-[12ch] xl:text-7xl">
+                  <span className="block">{titleText}</span>
+                  <span className="mt-2 block text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text">
+                    {subtitleText}
                   </span>
                 </h1>
+              </div>
 
-                <p className="text-lg text-muted-foreground max-w-xl">
-                  {t(hero.description)}
+              <div className="w-full max-w-xl rounded-3xl border border-blue-100 bg-white/80 px-5 py-4 shadow-sm backdrop-blur-sm md:px-6 md:py-5">
+                <p className="text-base leading-8 text-slate-700 md:text-lg">
+                  {descriptionText}
                 </p>
-              </>
-            )}
+              </div>
 
-            <div className="flex gap-4">
-              <Button size="lg" className="rounded-full">
-                {t(hero.meta_title)}
-                {isRTL ? (
-                  <ArrowLeft className="mr-2 w-4 h-4" />
-                ) : (
-                  <ArrowLeft className="ml-2 w-4 h-4 rotate-180" />
-                )}
-              </Button>
-              <Button size="lg" variant="outline" className="rounded-full">
-                {t(hero.meta_description)}
-              </Button>
+              <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+                <Button size="lg" className="min-h-12 rounded-full px-6 text-base shadow-md">
+                  {t(hero.meta_title)}
+                  {isRTL ? (
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                  ) : (
+                    <ArrowLeft className="ml-2 h-4 w-4 rotate-180" />
+                  )}
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="min-h-12 rounded-full border-blue-200 bg-white/70 px-6 text-base text-slate-700"
+                >
+                  {t(hero.meta_description)}
+                </Button>
+              </div>
             </div>
           </div>
 
-          {/* Video */}
           <div
-            className={`transition-all duration-700 delay-300 ${
-              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            className={`order-1 lg:order-2 transition-all duration-700 delay-300 ${
+              mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="relative w-full aspect-square max-w-lg mx-auto rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative mx-auto aspect-square w-full max-w-lg overflow-hidden rounded-3xl shadow-2xl">
               <video
                 ref={videoRef}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 autoPlay
                 muted
                 loop
@@ -185,8 +160,8 @@ export function HeroSection() {
                 preload="auto"
               >
                 <source src={videoUrl} type="video/mp4" />
-                {isRTL 
-                  ? "متصفحك لا يدعم تشغيل الفيديو" 
+                {isRTL
+                  ? "متصفحك لا يدعم تشغيل الفيديو"
                   : "Your browser does not support the video tag."}
               </video>
             </div>
