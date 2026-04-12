@@ -95,7 +95,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative bg-gradient-to-b from-blue-50/50 to-background pt-4 md:pt-6 lg:pt-8"
+      className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-background pt-6 md:pt-8 lg:pt-10"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="absolute inset-0 opacity-30">
@@ -103,7 +103,7 @@ export function HeroSection() {
         <div className="absolute bottom-20 left-10 h-96 w-96 rounded-full bg-blue-300/20 blur-3xl" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 md:px-6 pt-1 md:pt-3 lg:pt-4 pb-12 md:pb-16 lg:pb-20">
+      <div className="container relative z-10 mx-auto px-4 md:px-6 pt-2 md:pt-4 lg:pt-6 pb-12 md:pb-16 lg:pb-20">
         <div className="grid grid-cols-1 items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           <div
             className={`space-y-6 transition-all duration-700 ${
@@ -116,25 +116,25 @@ export function HeroSection() {
             </div>
 
             {isArabic ? (
-              <div className="mx-auto w-full max-w-xl space-y-5 lg:mx-0 lg:max-w-2xl">
-                <div className="flex w-full justify-center lg:justify-end">
-                  <h1
-                    className="inline-flex w-fit flex-col items-center overflow-visible pb-2 text-center text-slate-950"
-                    style={{ fontFamily: 'var(--font-cairo), Cairo, system-ui, sans-serif' }}
-                  >
-                    <span className="block whitespace-nowrap pb-[0.16em] text-[2.05rem] font-extrabold leading-[1.34] tracking-[-0.02em] sm:text-[2.45rem] sm:leading-[1.32] md:text-[2.95rem] md:leading-[1.3] lg:text-[3.2rem] lg:leading-[1.24] xl:text-[3.55rem] xl:leading-[1.22]">
-                      {heroHeadline?.lineOne}
-                    </span>
-                    <span className="block whitespace-nowrap pb-[0.18em] text-[1.95rem] font-extrabold leading-[1.32] tracking-[-0.015em] text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text sm:text-[2.35rem] sm:leading-[1.3] md:text-[2.8rem] md:leading-[1.28] lg:text-[2.95rem] lg:leading-[1.22] xl:text-[3.3rem] xl:leading-[1.2]">
-                      {heroHeadline?.lineTwo}
-                    </span>
-                  </h1>
-                </div>
+              <div className="mx-auto w-full max-w-xl space-y-4 lg:mx-0 lg:max-w-2xl">
+                <h1 className="text-center font-extrabold leading-[1.1] tracking-tight text-slate-950 text-[2.5rem] sm:text-[3rem] md:text-[3.6rem] lg:text-[3.9rem] xl:text-[4.2rem] lg:text-right">
+                  <span className="block max-w-full text-balance break-words">
+                    {heroHeadline?.lineOne}
+                  </span>
+                  <span className="mt-2 block text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text text-center lg:text-center">
+                    {heroHeadline?.lineTwo}
+                  </span>
+                </h1>
 
-                <div className="mx-auto max-w-xl rounded-2xl border border-blue-100/80 bg-white/85 px-5 py-4 shadow-lg shadow-blue-100/40 backdrop-blur-sm md:px-6 lg:mx-0">
-                  <p className="text-center text-base font-medium leading-8 text-slate-700 md:text-lg lg:text-right">
-                    {heroHeadline?.description}
-                  </p>
+                <div className="group relative mx-auto max-w-xl overflow-hidden rounded-[28px] border border-blue-200/70 bg-gradient-to-l from-white via-sky-50 to-blue-50 px-5 py-4 shadow-[0_18px_50px_-24px_rgba(37,99,235,0.45)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_-24px_rgba(14,165,233,0.5)] md:px-6 lg:mx-0">
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.18),transparent_38%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.14),transparent_34%)] opacity-90" />
+                  <div className="pointer-events-none absolute -left-16 top-0 h-full w-24 -skew-x-12 bg-white/40 blur-xl transition-transform duration-700 group-hover:translate-x-[220%]" />
+                  <div className="relative flex items-center justify-center gap-3 lg:justify-start">
+                    <span className="h-2.5 w-2.5 rounded-full bg-blue-600 shadow-[0_0_0_6px_rgba(37,99,235,0.12)]" />
+                    <p className="text-center text-base font-semibold leading-8 text-slate-800 md:text-lg lg:text-right">
+                      {heroHeadline?.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             ) : (
