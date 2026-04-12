@@ -92,8 +92,8 @@ export function HeroSection() {
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 pt-4 md:pt-8 lg:pt-10 pb-12 md:pb-16 lg:pb-20 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div className="container mx-auto px-4 md:px-6 pt-0 md:pt-2 lg:pt-4 pb-12 md:pb-16 lg:pb-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center lg:-mt-4">
           <div
             className={`space-y-6 transition-all duration-700 ${
               mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
