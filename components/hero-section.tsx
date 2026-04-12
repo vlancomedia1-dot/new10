@@ -119,13 +119,13 @@ export function HeroSection() {
               <div className="mx-auto w-full max-w-xl space-y-5 lg:mx-0 lg:max-w-2xl">
                 <div className="w-full max-w-2xl text-center lg:text-right">
                   <h1
-                    className="mx-auto flex max-w-full flex-col items-center gap-2 overflow-visible pb-2 font-extrabold tracking-[-0.02em] text-slate-950 text-[2.2rem] leading-[1.32] sm:text-[2.7rem] sm:leading-[1.3] md:text-[3.2rem] md:leading-[1.28] lg:mx-0 lg:items-start lg:text-[3.65rem] lg:leading-[1.22] xl:text-[4rem] xl:leading-[1.2]"
+                    className="mx-auto flex w-full flex-col items-center overflow-visible pb-2 text-slate-950 lg:mx-0 lg:items-start"
                     style={{ fontFamily: 'var(--font-cairo), Cairo, system-ui, sans-serif' }}
                   >
-                    <span className="block w-full overflow-visible pb-[0.14em] [text-wrap:balance]">
+                    <span className="block w-full whitespace-nowrap pb-[0.16em] text-center text-[2.05rem] font-extrabold leading-[1.34] tracking-[-0.02em] sm:text-[2.45rem] sm:leading-[1.32] md:text-[2.95rem] md:leading-[1.3] lg:text-right lg:text-[3.35rem] lg:leading-[1.24] xl:text-[3.75rem] xl:leading-[1.22]">
                       {heroHeadline?.lineOne}
                     </span>
-                    <span className="block w-full overflow-visible pb-[0.16em] text-center text-transparent [text-wrap:balance] bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text lg:text-right">
+                    <span className="block w-full whitespace-nowrap pb-[0.18em] text-center text-[1.95rem] font-extrabold leading-[1.32] tracking-[-0.015em] text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text sm:text-[2.35rem] sm:leading-[1.3] md:text-[2.8rem] md:leading-[1.28] lg:text-right lg:text-[3.1rem] lg:leading-[1.22] xl:text-[3.45rem] xl:leading-[1.2]">
                       {heroHeadline?.lineTwo}
                     </span>
                   </h1>
