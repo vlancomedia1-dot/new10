@@ -49,7 +49,6 @@ export function HeroSection() {
   }, []);
 
   useEffect(() => {
-    // Play video when it's loaded and mounted
     const video = videoRef.current;
     if (video && mounted && hero) {
       const playVideo = async () => {
@@ -59,8 +58,7 @@ export function HeroSection() {
           console.error("Video autoplay failed:", error);
         }
       };
-      
-      // Try to play after a small delay to ensure video is loaded
+
       const timer = setTimeout(playVideo, 500);
       return () => clearTimeout(timer);
     }
@@ -76,32 +74,26 @@ export function HeroSection() {
 
   if (!hero) return null;
 
-  // Helper function to get localized text with fallback
   const t = (field: LocalizedString) => {
     return field[language] || field.en || field.ar || "";
   };
 
-  // Determine text direction based on language
   const isRTL = language === "ar";
-
-  // Use video URL from hero data or fallback to default
   const videoUrl = hero.video || "https://admin.zynqor.org/public/vid.mp4";
 
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-background pt-16 lg:pt-20"
+      className="relative -mt-6 lg:-mt-8 overflow-hidden bg-gradient-to-b from-blue-50/50 to-background pt-14 lg:pt-16"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Background blobs */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 right-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 pt-4 md:pt-8 lg:pt-10 pb-12 md:pb-16 lg:pb-20 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 pt-0 pb-12 md:pb-16 lg:pb-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Content */}
           <div
             className={`space-y-6 transition-all duration-700 ${
               mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -139,7 +131,6 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Video */}
           <div
             className={`transition-all duration-700 delay-300 ${
               mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -156,8 +147,8 @@ export function HeroSection() {
                 preload="auto"
               >
                 <source src={videoUrl} type="video/mp4" />
-                {isRTL 
-                  ? "متصفحك لا يدعم تشغيل الفيديو" 
+                {isRTL
+                  ? "متصفحك لا يدعم تشغيل الفيديو"
                   : "Your browser does not support the video tag."}
               </video>
             </div>
