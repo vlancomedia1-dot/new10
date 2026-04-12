@@ -117,15 +117,15 @@ export function HeroSection() {
 
             {isArabic ? (
               <div className="mx-auto w-full max-w-xl space-y-5 lg:mx-0 lg:max-w-2xl">
-                <div className="w-full max-w-2xl text-center lg:text-right">
+                <div className="flex w-full justify-center lg:justify-end">
                   <h1
-                    className="mx-auto flex w-full flex-col items-center overflow-visible pb-2 text-slate-950 lg:mx-0 lg:items-start"
+                    className="inline-flex w-fit flex-col items-center overflow-visible pb-2 text-center text-slate-950"
                     style={{ fontFamily: 'var(--font-cairo), Cairo, system-ui, sans-serif' }}
                   >
-                    <span className="block w-full whitespace-nowrap pb-[0.16em] text-center text-[2.05rem] font-extrabold leading-[1.34] tracking-[-0.02em] sm:text-[2.45rem] sm:leading-[1.32] md:text-[2.95rem] md:leading-[1.3] lg:text-right lg:text-[3.35rem] lg:leading-[1.24] xl:text-[3.75rem] xl:leading-[1.22]">
+                    <span className="block whitespace-nowrap pb-[0.16em] text-[2.05rem] font-extrabold leading-[1.34] tracking-[-0.02em] sm:text-[2.45rem] sm:leading-[1.32] md:text-[2.95rem] md:leading-[1.3] lg:text-[3.2rem] lg:leading-[1.24] xl:text-[3.55rem] xl:leading-[1.22]">
                       {heroHeadline?.lineOne}
                     </span>
-                    <span className="block w-full whitespace-nowrap pb-[0.18em] text-center text-[1.95rem] font-extrabold leading-[1.32] tracking-[-0.015em] text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text sm:text-[2.35rem] sm:leading-[1.3] md:text-[2.8rem] md:leading-[1.28] lg:text-right lg:text-[3.1rem] lg:leading-[1.22] xl:text-[3.45rem] xl:leading-[1.2]">
+                    <span className="block whitespace-nowrap pb-[0.18em] text-[1.95rem] font-extrabold leading-[1.32] tracking-[-0.015em] text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text sm:text-[2.35rem] sm:leading-[1.3] md:text-[2.8rem] md:leading-[1.28] lg:text-[2.95rem] lg:leading-[1.22] xl:text-[3.3rem] xl:leading-[1.2]">
                       {heroHeadline?.lineTwo}
                     </span>
                   </h1>
