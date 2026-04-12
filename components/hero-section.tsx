@@ -90,7 +90,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="min-h-[calc(100vh-5rem)] relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-background pt-16 lg:pt-20"
+      className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-background pt-16 lg:pt-20"
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Background blobs */}
