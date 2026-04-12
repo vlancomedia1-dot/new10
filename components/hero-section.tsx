@@ -88,43 +88,43 @@ export function HeroSection() {
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 right-10 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
-        <div className="absolute bottom-20 left-10 h-96 w-96 rounded-full bg-blue-300/20 blur-3xl" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 pb-12 pt-4 md:px-6 md:pb-16 md:pt-8 lg:pb-20 lg:pt-10">
-        <div className="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2">
+      <div className="container mx-auto px-4 md:px-6 pt-4 md:pt-8 lg:pt-10 pb-12 md:pb-16 lg:pb-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div
             className={`space-y-6 transition-all duration-700 ${
-              mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="inline-flex w-fit items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800">
-              <Sparkles className="h-4 w-4" />
-              {t(hero.meta_keywords)}
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium w-fit max-w-full">
+              <Sparkles className="w-4 h-4 shrink-0" />
+              <span className="leading-relaxed">{t(hero.meta_keywords)}</span>
             </div>
 
-            <h1 className="max-w-3xl text-4xl font-extrabold leading-[1.15] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl xl:text-[4.25rem] xl:leading-[1.08]">
-              <span className="block">{t(hero.title)}</span>
-              <span className="mt-2 block bg-gradient-to-l from-blue-500 to-blue-700 bg-clip-text text-transparent xl:mt-3">
+            <h1 className="max-w-3xl text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.15] md:leading-[1.2] tracking-tight text-balance">
+              <span className="block mb-2 md:mb-3">{t(hero.title)}</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-l from-blue-500 to-blue-700 leading-[1.2] md:leading-[1.25]">
                 {t(hero.subtitle)}
               </span>
             </h1>
 
-            <p className="max-w-xl text-base leading-8 text-muted-foreground md:text-lg">
+            <p className="text-lg leading-8 text-muted-foreground max-w-2xl">
               {t(hero.description)}
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="rounded-full px-6">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button size="lg" className="rounded-full">
                 {t(hero.meta_title)}
                 {isRTL ? (
-                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  <ArrowLeft className="mr-2 w-4 h-4" />
                 ) : (
-                  <ArrowLeft className="ml-2 h-4 w-4 rotate-180" />
+                  <ArrowLeft className="ml-2 w-4 h-4 rotate-180" />
                 )}
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full px-6 whitespace-normal text-center">
+              <Button size="lg" variant="outline" className="rounded-full whitespace-normal h-auto py-3">
                 {t(hero.meta_description)}
               </Button>
             </div>
@@ -132,13 +132,13 @@ export function HeroSection() {
 
           <div
             className={`transition-all duration-700 delay-300 ${
-              mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="relative mx-auto aspect-square w-full max-w-lg overflow-hidden rounded-3xl shadow-2xl">
+            <div className="relative w-full aspect-square max-w-lg mx-auto rounded-3xl overflow-hidden shadow-2xl">
               <video
                 ref={videoRef}
-                className="h-full w-full object-cover"
+                className="w-full h-full object-cover"
                 autoPlay
                 muted
                 loop
