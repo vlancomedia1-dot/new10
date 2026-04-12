@@ -152,20 +152,23 @@ export function HeroSection() {
             )}
 
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:items-center">
-              <Button size="lg" className="min-h-12 rounded-full px-6 text-base shadow-md">
-                {t(hero.meta_title)}
+              <Button
+                size="lg"
+                className="group min-h-12 rounded-full border border-blue-500/20 bg-gradient-to-l from-blue-700 via-blue-600 to-cyan-500 px-7 text-base font-semibold text-white shadow-[0_18px_40px_-18px_rgba(37,99,235,0.75)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-20px_rgba(14,165,233,0.85)]"
+              >
+                <span className="relative">{isArabic ? "استشارة مجانية" : t(hero.meta_title)}</span>
                 {isRTL ? (
-                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
                 ) : (
-                  <ArrowLeft className="ml-2 h-4 w-4 rotate-180" />
+                  <ArrowLeft className="ml-2 h-4 w-4 rotate-180 transition-transform duration-300 group-hover:translate-x-1" />
                 )}
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="min-h-12 rounded-full border-blue-200 bg-white/70 px-6 text-base text-slate-700"
+                className="group min-h-12 rounded-full border border-blue-200/80 bg-white/85 px-7 text-base font-semibold text-slate-800 shadow-[0_14px_34px_-24px_rgba(15,23,42,0.55)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-50 hover:text-blue-700 hover:shadow-[0_20px_40px_-22px_rgba(14,165,233,0.45)]"
               >
-                {t(hero.meta_description)}
+                <span>{isArabic ? "طلب خدمة" : t(hero.meta_description)}</span>
               </Button>
             </div>
           </div>
