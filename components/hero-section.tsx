@@ -104,9 +104,9 @@ export function HeroSection() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 md:px-6 pt-2 md:pt-4 lg:pt-6 pb-12 md:pb-16 lg:pb-20">
-        <div className="grid grid-cols-1 items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+        <div className="grid grid-cols-1 items-center gap-6 md:gap-8 lg:grid-cols-2 lg:items-stretch lg:gap-12 xl:gap-16">
           <div
-            className={`space-y-6 transition-all duration-700 ${
+            className={`flex h-full flex-col space-y-6 transition-all duration-700 ${
               mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
@@ -117,11 +117,11 @@ export function HeroSection() {
 
             {isArabic ? (
               <div className="mx-auto flex w-full max-w-xl flex-col items-center space-y-4 lg:max-w-2xl">
-                <h1 className="flex w-full flex-col items-center text-center font-extrabold leading-tight tracking-tight text-balance text-slate-950">
-                  <span className="block whitespace-nowrap text-foreground text-[2.3rem] sm:text-[2.8rem] md:text-[3.2rem] lg:text-[3.6rem] xl:text-[3.9rem]">
+                <h1 className="flex w-full flex-col items-center text-center font-extrabold tracking-tight text-slate-950">
+                  <span className="inline-block whitespace-nowrap pb-2 font-[Tajawal,IBM_Plex_Sans_Arabic,system-ui,sans-serif] text-[2.3rem] leading-[1.22] sm:text-[2.8rem] md:text-[3.2rem] lg:text-[3.6rem] xl:text-[3.9rem]">
                     {heroHeadline?.lineOne}
                   </span>
-                  <span className="mt-2 block whitespace-nowrap text-center text-[2.05rem] sm:text-[2.45rem] md:text-[2.85rem] lg:text-[3.05rem] xl:text-[3.2rem] text-transparent bg-gradient-to-l from-blue-500 via-cyan-500 to-blue-700 bg-clip-text">
+                  <span className="inline-block whitespace-nowrap pb-1 text-center font-[Tajawal,IBM_Plex_Sans_Arabic,system-ui,sans-serif] text-[2.05rem] leading-[1.24] text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text sm:text-[2.45rem] md:text-[2.85rem] lg:text-[3.05rem] xl:text-[3.2rem]">
                     {heroHeadline?.lineTwo}
                   </span>
                 </h1>
@@ -151,24 +151,23 @@ export function HeroSection() {
               </>
             )}
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:items-center">
+            <div className="mt-2 flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap lg:mt-auto lg:pt-6 xl:pt-8">
               <Button
                 size="lg"
-                className="group min-h-12 rounded-full border border-blue-500/20 bg-gradient-to-l from-blue-700 via-blue-600 to-cyan-500 px-7 text-base font-semibold text-white shadow-[0_18px_40px_-18px_rgba(37,99,235,0.75)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_48px_-20px_rgba(14,165,233,0.85)]"
+                className="min-h-14 min-w-[190px] rounded-full bg-gradient-to-l from-blue-600 via-blue-500 to-sky-500 px-7 text-base font-semibold text-white shadow-[0_18px_36px_-16px_rgba(37,99,235,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_42px_-16px_rgba(37,99,235,0.72)]"
               >
-                <span className="relative">{isArabic ? "استشارة مجانية" : t(hero.meta_title)}</span>
+                {isArabic ? "استشارة مجانية" : t(hero.meta_title)}
                 {isRTL ? (
-                  <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+                  <ArrowLeft className="mr-2 h-4 w-4" />
                 ) : (
-                  <ArrowLeft className="ml-2 h-4 w-4 rotate-180 transition-transform duration-300 group-hover:translate-x-1" />
+                  <ArrowLeft className="ml-2 h-4 w-4 rotate-180" />
                 )}
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="group min-h-12 rounded-full border border-blue-200/80 bg-white/85 px-7 text-base font-semibold text-slate-800 shadow-[0_14px_34px_-24px_rgba(15,23,42,0.55)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-50 hover:text-blue-700 hover:shadow-[0_20px_40px_-22px_rgba(14,165,233,0.45)]"
+                className="min-h-14 min-w-[190px] rounded-full border border-blue-200/80 bg-gradient-to-l from-slate-950 via-slate-900 to-blue-950 px-7 text-base font-semibold text-white shadow-[0_18px_36px_-18px_rgba(15,23,42,0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_44px_-18px_rgba(30,41,59,0.68)]"
               >
-                <span>{isArabic ? "طلب خدمة" : t(hero.meta_description)}</span>
+                {isArabic ? "طلب خدمة" : t(hero.meta_description)}
               </Button>
             </div>
           </div>
