@@ -79,11 +79,18 @@ export function HeroSection() {
   };
 
   const isRTL = language === "ar";
-  const videoUrl = hero.video || "https://admin.zynqor.org/public/vid.mp4";
+  const isArabic = language === "ar";
 
-  const titleText = t(hero.title);
-  const subtitleText = t(hero.subtitle);
-  const descriptionText = t(hero.description);
+  const heroHeadline = isArabic
+    ? {
+        eyebrow: "شريكك في التحول الرقمي",
+        lineOne: "نطوّر المستقبل الرقمي",
+        lineTwo: "بثقة وابتكار",
+        description: "حيث تتحول الأفكار إلى حلول تقنية رائدة.",
+      }
+    : null;
+
+  const videoUrl = hero.video || "https://admin.zynqor.org/public/vid.mp4";
 
   return (
     <section
@@ -99,53 +106,67 @@ export function HeroSection() {
       <div className="container relative z-10 mx-auto px-4 md:px-6 pt-4 md:pt-8 lg:pt-10 pb-12 md:pb-16 lg:pb-20">
         <div className="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2">
           <div
-            className={`order-2 lg:order-1 transition-all duration-700 ${
+            className={`space-y-6 transition-all duration-700 ${
               mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-5 text-center lg:mx-0 lg:items-start lg:text-start">
-              <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-100/80 px-4 py-2 text-sm font-medium text-blue-800 shadow-sm backdrop-blur w-fit">
-                <Sparkles className="h-4 w-4" />
-                <span className="leading-none">{t(hero.meta_keywords)}</span>
-              </div>
+            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-blue-100/80 px-4 py-2 text-sm font-medium text-blue-800 shadow-sm backdrop-blur-sm">
+              <Sparkles className="h-4 w-4" />
+              {isArabic ? heroHeadline?.eyebrow : t(hero.meta_keywords)}
+            </div>
 
-              <div className="space-y-3 md:space-y-4">
-                <h1 className="max-w-[14ch] text-balance text-4xl font-extrabold leading-[1.2] tracking-tight text-slate-950 sm:text-5xl md:text-6xl lg:max-w-[12ch] xl:text-7xl">
-                  <span className="block">{titleText}</span>
-                  <span className="mt-2 block text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text">
-                    {subtitleText}
+            {isArabic ? (
+              <div className="max-w-2xl space-y-4">
+                <h1 className="text-4xl font-extrabold leading-[1.2] tracking-tight text-slate-950 sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+                  <span className="block whitespace-normal lg:whitespace-nowrap">
+                    {heroHeadline?.lineOne}
+                  </span>
+                  <span className="mt-2 block whitespace-normal text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text lg:whitespace-nowrap">
+                    {heroHeadline?.lineTwo}
                   </span>
                 </h1>
-              </div>
 
-              <div className="w-full max-w-xl rounded-3xl border border-blue-100 bg-white/80 px-5 py-4 shadow-sm backdrop-blur-sm md:px-6 md:py-5">
-                <p className="text-base leading-8 text-slate-700 md:text-lg">
-                  {descriptionText}
-                </p>
+                <div className="max-w-xl rounded-2xl border border-blue-100/80 bg-white/80 px-5 py-4 shadow-lg shadow-blue-100/40 backdrop-blur-sm md:px-6">
+                  <p className="text-base font-medium leading-8 text-slate-700 md:text-lg">
+                    {heroHeadline?.description}
+                  </p>
+                </div>
               </div>
+            ) : (
+              <>
+                <h1 className="text-4xl font-bold md:text-6xl">
+                  {t(hero.title)}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-l from-blue-500 to-blue-700">
+                    {" "}
+                    {t(hero.subtitle)}
+                  </span>
+                </h1>
 
-              <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-                <Button size="lg" className="min-h-12 rounded-full px-6 text-base shadow-md">
-                  {t(hero.meta_title)}
-                  {isRTL ? (
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                  ) : (
-                    <ArrowLeft className="ml-2 h-4 w-4 rotate-180" />
-                  )}
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="min-h-12 rounded-full border-blue-200 bg-white/70 px-6 text-base text-slate-700"
-                >
-                  {t(hero.meta_description)}
-                </Button>
-              </div>
+                <p className="max-w-xl text-lg text-muted-foreground">{t(hero.description)}</p>
+              </>
+            )}
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button size="lg" className="min-h-12 rounded-full px-6 text-base shadow-md">
+                {t(hero.meta_title)}
+                {isRTL ? (
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                ) : (
+                  <ArrowLeft className="ml-2 h-4 w-4 rotate-180" />
+                )}
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="min-h-12 rounded-full border-blue-200 bg-white/70 px-6 text-base text-slate-700"
+              >
+                {t(hero.meta_description)}
+              </Button>
             </div>
           </div>
 
           <div
-            className={`order-1 lg:order-2 transition-all duration-700 delay-300 ${
+            className={`transition-all duration-700 delay-300 ${
               mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
