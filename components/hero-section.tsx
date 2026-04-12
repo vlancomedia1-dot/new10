@@ -95,7 +95,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-background pt-16 lg:pt-20"
+      className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 to-background pt-6 md:pt-8 lg:pt-10"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div className="absolute inset-0 opacity-30">
@@ -103,8 +103,8 @@ export function HeroSection() {
         <div className="absolute bottom-20 left-10 h-96 w-96 rounded-full bg-blue-300/20 blur-3xl" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 md:px-6 pt-4 md:pt-8 lg:pt-10 pb-12 md:pb-16 lg:pb-20">
-        <div className="grid grid-cols-1 items-center gap-8 md:gap-12 lg:grid-cols-2">
+      <div className="container relative z-10 mx-auto px-4 md:px-6 pt-2 md:pt-4 lg:pt-6 pb-12 md:pb-16 lg:pb-20">
+        <div className="grid grid-cols-1 items-center gap-6 md:gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           <div
             className={`space-y-6 transition-all duration-700 ${
               mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
@@ -116,18 +116,18 @@ export function HeroSection() {
             </div>
 
             {isArabic ? (
-              <div className="max-w-2xl space-y-4">
-                <h1 className="text-4xl font-extrabold leading-[1.2] tracking-tight text-slate-950 sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-                  <span className="block whitespace-normal lg:whitespace-nowrap">
+              <div className="mx-auto w-full max-w-xl space-y-4 lg:mx-0 lg:max-w-2xl">
+                <h1 className="text-center font-extrabold leading-[1.1] tracking-tight text-slate-950 text-[2.5rem] sm:text-[3rem] md:text-[3.6rem] lg:text-[3.9rem] xl:text-[4.2rem] lg:text-right">
+                  <span className="block max-w-full text-balance break-words">
                     {heroHeadline?.lineOne}
                   </span>
-                  <span className="mt-2 block whitespace-normal text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text lg:whitespace-nowrap">
+                  <span className="mt-2 block text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text text-center lg:text-center">
                     {heroHeadline?.lineTwo}
                   </span>
                 </h1>
 
-                <div className="max-w-xl rounded-2xl border border-blue-100/80 bg-white/80 px-5 py-4 shadow-lg shadow-blue-100/40 backdrop-blur-sm md:px-6">
-                  <p className="text-base font-medium leading-8 text-slate-700 md:text-lg">
+                <div className="mx-auto max-w-xl rounded-2xl border border-blue-100/80 bg-white/85 px-5 py-4 shadow-lg shadow-blue-100/40 backdrop-blur-sm md:px-6 lg:mx-0">
+                  <p className="text-center text-base font-medium leading-8 text-slate-700 md:text-lg lg:text-right">
                     {heroHeadline?.description}
                   </p>
                 </div>
@@ -146,7 +146,7 @@ export function HeroSection() {
               </>
             )}
 
-            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:items-center">
               <Button size="lg" className="min-h-12 rounded-full px-6 text-base shadow-md">
                 {t(hero.meta_title)}
                 {isRTL ? (
@@ -170,7 +170,7 @@ export function HeroSection() {
               mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="relative mx-auto aspect-square w-full max-w-lg overflow-hidden rounded-3xl shadow-2xl">
+            <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-3xl shadow-2xl sm:max-w-lg lg:max-w-xl">
               <video
                 ref={videoRef}
                 className="h-full w-full object-cover"
