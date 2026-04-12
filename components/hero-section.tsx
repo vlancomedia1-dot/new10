@@ -117,11 +117,11 @@ export function HeroSection() {
 
             {isArabic ? (
               <div className="mx-auto flex w-full max-w-xl flex-col items-center space-y-4 lg:max-w-2xl">
-                <h1 className="flex w-full flex-col items-center text-center font-extrabold tracking-tight text-slate-950">
-                  <span className="inline-block whitespace-nowrap pb-2 font-[Tajawal,IBM_Plex_Sans_Arabic,system-ui,sans-serif] text-[2.3rem] leading-[1.22] sm:text-[2.8rem] md:text-[3.2rem] lg:text-[3.6rem] xl:text-[3.9rem]">
+                <h1 className="flex w-full flex-col items-center text-center font-extrabold leading-tight tracking-tight text-balance text-slate-950">
+                  <span className="block whitespace-nowrap text-foreground text-[2.3rem] sm:text-[2.8rem] md:text-[3.2rem] lg:text-[3.6rem] xl:text-[3.9rem]">
                     {heroHeadline?.lineOne}
                   </span>
-                  <span className="inline-block whitespace-nowrap pb-1 text-center font-[Tajawal,IBM_Plex_Sans_Arabic,system-ui,sans-serif] text-[2.05rem] leading-[1.24] text-transparent bg-gradient-to-l from-blue-500 via-sky-500 to-blue-700 bg-clip-text sm:text-[2.45rem] md:text-[2.85rem] lg:text-[3.05rem] xl:text-[3.2rem]">
+                  <span className="mt-2 block whitespace-nowrap text-center text-[2.05rem] sm:text-[2.45rem] md:text-[2.85rem] lg:text-[3.05rem] xl:text-[3.2rem] text-transparent bg-gradient-to-l from-blue-500 via-cyan-500 to-blue-700 bg-clip-text">
                     {heroHeadline?.lineTwo}
                   </span>
                 </h1>
