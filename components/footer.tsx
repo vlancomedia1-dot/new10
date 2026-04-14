@@ -142,7 +142,7 @@ export function Footer({ settings }: FooterProps) {
               {settings 
                 ? tLocal(settings.site_description) 
                 : (isRTL 
-                  ? "شركة رائدة في تقديم حلول تقنية متكاملة ومبتكرة للشركات والمؤسسات لتحقيق النمو الرقمي والتميز." 
+                  ? "نطوّر المستقبل الرقمي بثقة وابتكار" 
                   : "Leading company in providing innovative technical solutions."
                 )
               }

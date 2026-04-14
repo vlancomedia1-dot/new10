@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
   // Fallback metadata
   return {
     title: "Zynqore - حلول تقنية متطورة",
-    description: "شركة رائدة في تقديم حلول تقنية متكاملة ومبتكرة للشركات والمؤسسات",
+    description: "نطوّر المستقبل الرقمي بثقة وابتكار",
     generator: "v0.app",
     icons: {
       icon: [
